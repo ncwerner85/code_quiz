@@ -74,7 +74,7 @@ h3 {
 
 .btn:hover {
     cursor: pointer;
-    box-shadow: 0 0.4rem 1.4rem 0 rgba(153, 0, 82, 0.5);
+    box-shadow: 0 0.4rem 1.4rem 0 rgba(102, 0, 54, 0.5);
     transform: translate(-0.1rem);
     transition: trasform 150ms;
 }
