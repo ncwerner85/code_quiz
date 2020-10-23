@@ -14,6 +14,8 @@ THEN I can save my initials and score */
 
 //the start button is clicked and the time starts
 const startButton = document.getElementById("start-btn");
+const nextButton = document.getElementById("next-btn")
+const scoreButton = document.getElementById("score-btn")
 const choice1 = document.getElementById("choice1");
 const choice2 = document.getElementById("choice2");
 const choice3 = document.getElementById("choice3");
@@ -92,7 +94,7 @@ function loadNextQuestion(currentQuestion) {
 
 // if correct game continues
 function checkAnswer() {
-    
+
   // Then the user will click the next button, which will iterate to the next question
   // goToNext();
 }
@@ -111,5 +113,8 @@ function goToNext() {
 
 // user can leave name and score in high scores in local storage
 function saveData() {}
+function highScore () {}
 
 startButton.addEventListener("click", startGame);
+nextButton.addEventListener("click", goToNext)
+scoreButton.addEventListener("click", highScore)
