@@ -11,18 +11,24 @@
     <div class="container shadow-lg p-3 mb-5 bg-white rounded">
         <div id="timer" class="card-header p-3 mb-2 bg-warning text-dark"></div>
         <div class="card-body p-3 mb-2 bg-info text-white">
-            <div class="card-title text-xl-left">Question?</div>    
+            <div class="card-title text-xl-left">JavaScript Quiz</div>    
             <div id="answers-btn">
-                <button id="choice1" type="button" class="btn p-3 mb-2 bg-light text-dark btn-lg btn-block">choice 1</button>
-                <button id="choice2" type="button" class="btn p-3 mb-2 bg-light text-dark btn-lg btn-block">choice 2</button>
-                <button id="choice3" type="button" class="btn p-3 mb-2 bg-light text-dark btn-lg btn-block">choice 3</button>
-                <button id="choice4" type="button" class="btn p-3 mb-2 bg-light text-dark btn-lg btn-block">choice 4</button>
+                <button id="choice1" type="button" class="btn p-3 mb-2 bg-light text-dark btn-lg btn-block"></button>
+                <button id="choice2" type="button" class="btn p-3 mb-2 bg-light text-dark btn-lg btn-block"></button>
+                <button id="choice3" type="button" class="btn p-3 mb-2 bg-light text-dark btn-lg btn-block"></button>
+                <button id="choice4" type="button" class="btn p-3 mb-2 bg-light text-dark btn-lg btn-block"></button>
             </div>
         </div>    
         <div class="card-footer p-3 mb-2 bg-info">
             <button id="start-btn" type="button" class="btn p-3 mb-2 bg-dark text-white btn-lg">Start</button>
-            <button id="next-btn"type="button" class="btn p-3 mb-2 bg-dark text-white btn-lg">Next</button>
-            <button id="score-btn"type="button" class="btn p-3 mb-2 bg-dark text-white btn-lg">High Scores</button>
+        </div>
+        <div id="score-card" class="card-footer p-3 mb-2 bg-info text-white">
+            <h2>High Score</h2>
+            <form method="POST">
+                <label for="first-name">First Name</label>
+                <input type="text" name="first-name" id="first-name" placeholder="Jane" />
+            </form>
+            <button id="score-btn"type="button" class="btn p-3 mb-2 bg-dark text-white btn-sm">Submit</button>
         </div>
     </div>
 </body>

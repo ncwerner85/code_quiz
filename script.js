@@ -22,11 +22,12 @@ const choice3 = document.getElementById("choice3");
 const choice4 = document.getElementById("choice4");
 const cardTitle = document.querySelector(".card-title");
 const timer = document.getElementById("timer");
+let secondsLeft = 60
 
 let timerInterval;
 
 let currentQuestion = 0;
-let score = "";
+let score = 0;
 
 // question is prompted
 const questions = [
@@ -59,12 +60,9 @@ const questions = [
 function startGame() {
   startTime();
   loadNextQuestion(currentQuestion);
-  console.log("started");
 }
 
 function startTime() {
-  console.log("timer start");
-  let secondsLeft = 60;
 
   timerInterval = setInterval(function () {
     secondsLeft--;
@@ -93,12 +91,25 @@ function loadNextQuestion(currentQuestion) {
 }
 
 // if correct game continues
-function checkAnswer() {
+function checkAnswer(e) {
+       e.target.textContent
+       if (e.target.textContent === questions[currentQuestion].answer) {
+           goToNext();
+           console.log(true);
+       } 
+    // if incorrect time is subtracted from timer, next question comes up goToNext();
+       else if (e.target.textContent !== questions[currentQuestion].answer) {
+            secondsLeft -= 10;
+            console.log(false)
+            
+       }      
+    }
+    
+
+  
 
   // Then the user will click the next button, which will iterate to the next question
   // goToNext();
-}
-
 function goToNext() {
   currentQuestion++;
   loadNextQuestion(currentQuestion);
@@ -107,7 +118,7 @@ function goToNext() {
 
 // user selects an answer
 
-// if incorrect time is subtracted from timer
+
 
 // when the timer reaches 0 or no more questions the game is over
 
@@ -116,5 +127,10 @@ function saveData() {}
 function highScore () {}
 
 startButton.addEventListener("click", startGame);
+choice1.addEventListener("click", checkAnswer)
+choice2.addEventListener("click", checkAnswer)
+choice3.addEventListener("click", checkAnswer)
+choice4.addEventListener("click", checkAnswer)
 nextButton.addEventListener("click", goToNext)
 scoreButton.addEventListener("click", highScore)
+
