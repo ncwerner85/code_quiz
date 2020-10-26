@@ -23,9 +23,9 @@ const cardTitle = document.querySelector(".card-title");
 const timer = document.getElementById("timer");
 var firstNameInput = document.querySelector("#first-name");
 
-let secondsLeft = 60
+let secondsLeft = 30
 
-let timerInterval;
+
 
 let currentQuestion = 0;
 let score = 0;
@@ -88,6 +88,22 @@ const questions = [
     d: "ifinteger(value)",
     answer: "isInteger(value)",
   },
+  {
+    questionNumber: "Which of the following is an advantage of using JavaScript?",
+    a: "Increased interactivity.",
+    b: "Less server interaction.",
+    c: "Immediate feedback from the users.",
+    d: "All of the above.",
+    answer: "All of the above.",
+  },
+  {
+    questionNumber: "Which function of an Array object calls a function for each element in the array?",
+    a: "Server",
+    b: "ISP",
+    c: "Browser",
+    d: "None of the above",
+    answer: "Browser",
+  },
 
 ];
 
@@ -110,12 +126,12 @@ function startTime() {
 }
 
 function loadNextQuestion(currentQuestion) {
-  console.log(questions[currentQuestion]);
-  cardTitle.textContent = questions[currentQuestion].questionNumber;
-  choice1.textContent = questions[currentQuestion].a;
-  choice2.textContent = questions[currentQuestion].b;
-  choice3.textContent = questions[currentQuestion].c;
-  choice4.textContent = questions[currentQuestion].d;
+    console.log(questions[currentQuestion]);
+    cardTitle.textContent = questions[currentQuestion].questionNumber;
+    choice1.textContent = questions[currentQuestion].a;
+    choice2.textContent = questions[currentQuestion].b;
+    choice3.textContent = questions[currentQuestion].c;
+    choice4.textContent = questions[currentQuestion].d;
 
   // Add event listeners to the four choice buttons such that it tells the user whether they're right or wrong, and changes the colors of the buttons, also changes score
   // checkAnswer();
@@ -143,9 +159,9 @@ function checkAnswer(e) {
     }
 
 function goToNext() {
-  currentQuestion++;
+  currentQuestion++
   loadNextQuestion(currentQuestion);
-}
+  }
 
 
 // when the timer reaches 0 or no more questions the game is over
@@ -154,6 +170,7 @@ function goToNext() {
 function highScore () {
     var firstName = firstNameInput.value.trim()
     var playerFirstNameSpan = document.querySelector("#user-first-name");
+    
 
     console.log(firstName);
     if (firstName === "") {
