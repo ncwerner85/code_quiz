@@ -33,29 +33,54 @@ let score = 0;
 // question is prompted
 const questions = [
   {
-    questionNumber: "What is the answer",
-    a: "house",
-    b: "shoe",
-    c: "apple",
-    d: "horse",
-    answer: "horse",
+    questionNumber: "What is the HTML tag under which one can write the JavaScript code?",
+    a: "<javascript>",
+    b: "<scripted>",
+    c: "<script>",
+    d: "<js>",
+    answer: "<script>",
   },
   {
-    questionNumber: "What is the answer",
-    a: "lace",
-    b: "bananna",
-    c: "car",
-    d: "mouse",
-    answer: "car",
+    questionNumber: "Which of the following is the correct syntax to display “Hello World” in an alert box using JavaScript?",
+    a: "alertbox(“Hello World”);",
+    b: "msg(“Hello World”);",
+    c: "msgbox(“Hello World”);",
+    d: "alert(“Hello World”);",
+    answer: "alert(“Hello World”);",
   },
   {
-    questionNumber: "What is the answer",
-    a: "fruit",
-    b: "chicken",
-    c: "cat",
-    d: "dog",
-    answer: "fruit",
+    questionNumber: "What is the correct syntax for referring to an external script called “script.js”?",
+    a: "<script src=”script.js”>",
+    b: "<script href=”script.js”>",
+    c: "<script ref=”script.js”>",
+    d: "<script name=”script.js”>",
+    answer: "<script src=”script.js”>",
   },
+  {
+    questionNumber: "Which of the following is not a reserved word in JavaScript?",
+    a: "interface",
+    b: "throws",
+    c: "program",
+    d: "short",
+    answer: "program",
+  },
+  {
+    questionNumber: "What is the syntax for creating a function in JavaScript named as workFunc?",
+    a: "function = workFunc()",
+    b: "function workFunc()",
+    c: "function := workFunc()",
+    d: "function : workFunc()",
+    answer: "function workFunc()",
+  },
+  {
+    questionNumber: "How to write an ‘if’ statement for executing some code. If “i” is NOT equal to 5?",
+    a: "if(i<>5)",
+    b: "if i<>5",
+    c: "if(i!=5)",
+    d: "if i!=5",
+    answer: "if(i!=5)",
+  },
+
 ];
 
 function startGame() {
@@ -117,16 +142,19 @@ function goToNext() {
 // user can leave name and score in high scores in local storage
 function highScore () {
     var firstName = firstNameInput.value.trim()
+    var playerFirstNameSpan = document.querySelector("#user-first-name");
 
     console.log(firstName);
     if (firstName === "") {
         alert("First name cannot be blank");
     } else {
         alert("High Score Saved");
+    }
+    localStorage.setItem("firstName", JSON.stringify(firstName));
 
+    var lastPlayer = JSON.parse(localStorage.getItem("firstName"));
+    playerFirstNameSpan.textContent = lastPlayer.firstName;
 }
-}
-
 
 
 startButton.addEventListener("click", startGame);
