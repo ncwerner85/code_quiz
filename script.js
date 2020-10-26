@@ -14,8 +14,7 @@ THEN I can save my initials and score */
 
 //the start button is clicked and the time starts
 const startButton = document.getElementById("start-btn");
-const nextButton = document.getElementById("next-btn")
-const scoreButton = document.getElementById("score-btn")
+const scoreCount = document.getElementById("score");
 const choice1 = document.getElementById("choice1");
 const choice2 = document.getElementById("choice2");
 const choice3 = document.getElementById("choice3");
@@ -23,6 +22,7 @@ const choice4 = document.getElementById("choice4");
 const cardTitle = document.querySelector(".card-title");
 const timer = document.getElementById("timer");
 var firstNameInput = document.querySelector("#first-name");
+
 let secondsLeft = 60
 
 let timerInterval;
@@ -80,6 +80,14 @@ const questions = [
     d: "if i!=5",
     answer: "if(i!=5)",
   },
+  {
+    questionNumber: "In JavaScript, we do not have datatypes like integer and float. What is the function that can be used to check if the number is an integer or not?",
+    a: "Integer(value)",
+    b: "ifInteger(value)",
+    c: "isInteger(value)",
+    d: "ifinteger(value)",
+    answer: "isInteger(value)",
+  },
 
 ];
 
@@ -96,7 +104,7 @@ function startTime() {
 
     if (secondsLeft === 0) {
       clearInterval(timerInterval);
-      //   sendMessage();
+      
     }
   }, 1000);
 }
@@ -120,12 +128,15 @@ function loadNextQuestion(currentQuestion) {
 function checkAnswer(e) {
        e.target.textContent
        if (e.target.textContent === questions[currentQuestion].answer) {
+           score++;
+           scoreCount.textContent = score + " points";
            goToNext();
            console.log(true);
        } 
     // if incorrect time is subtracted from timer, next question comes up goToNext();
        else if (e.target.textContent !== questions[currentQuestion].answer) {
-            secondsLeft -= 10;
+            secondsLeft -= 5;
+            goToNext();
             console.log(false)
             
        }      
@@ -154,6 +165,7 @@ function highScore () {
 
     var lastPlayer = JSON.parse(localStorage.getItem("firstName"));
     playerFirstNameSpan.textContent = lastPlayer.firstName;
+    console.log(playerFirstNameSpan)
 }
 
 
@@ -162,5 +174,5 @@ choice1.addEventListener("click", checkAnswer)
 choice2.addEventListener("click", checkAnswer)
 choice3.addEventListener("click", checkAnswer)
 choice4.addEventListener("click", checkAnswer)
-scoreButton.addEventListener("click", highScore)
+
 
