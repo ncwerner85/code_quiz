@@ -2,7 +2,7 @@
 The coding quiz is a timed coding quiz with multiple-choice question on JavaScript.This app will run in the browser, and will feature dynamically updated HTML and CSS powered by JavaScript code. It keep high scores so that one can guage themselves to thier peers.
 
 ## Screenshots
-
+![Screenshot of quiz](https://github.com/ncwerner85/code_quiz/blob/main/Screen%20Shot%202020-10-26%20at%2010.07.57%20AM.png?raw=true)
 ## Development of App
 
 * created initial HTML skeleton for main page with anchor tags.
